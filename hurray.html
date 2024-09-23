@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hurray-message">
+        <div class="trophy-image">
+        <img class="image1" src="./img/Group 5.png" alt="star">
+        <img class="image2" src="./img/Vector.png" alt="trophy">
+        </div>
+        <h1>HURRAY!!</h1>
+        <h2>YOU WON THE GAME</h2>
+     <button id="play-again-2">PLAY AGAIN</button>
+    </div>
+    <div class="footer-buttons">
+        <button id="rules-button">RULES</button>
+
+    </div>
+    <div class="popup-container" id="popup-container">
+        <button class="close-button" id="close-button">X</button>
+        <div class="popup-content">
+          <h3>Game Rules</h3>
+          <ul>
+            <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+            <li>Agree ahead of time whether you’ll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+            <li>Use rock, paper, scissors to settle minor decisions or simply play to pass the time</li>
+            <li>If both players lay down the same hand, each player lays down another hand</li>
+          </ul>
+        </div>
+    </div>
+    <script>
+        // Assign event listener to "play-again-2" button for redirecting to index.html
+const playAgainBtn = document.getElementById("play-again-2");
+playAgainBtn.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
+
+// Get elements for rules and popup behavior
+const rulesButton = document.getElementById('rules-button');
+const closeButton = document.getElementById('close-button');
+const popup = document.getElementById("popup-container");
+
+// Show the popup when the rules button is clicked
+rulesButton.addEventListener('click', () => {
+    popup.style.display = "block";
+});
+
+// Close the popup when the close button is clicked
+closeButton.addEventListener('click', () => {
+    popup.style.display = "none";
+});
+
+    </script>
+  
+    <script src="script.js"></script>
+</body>
+</html>

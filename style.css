@@ -1,0 +1,466 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: #8CC461;
+    font-family: roboto;
+    height: 100vh;
+    width:100%;
+}
+
+/*for hurray page Keyframes for scaling the trophy image */
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Trophy grows slightly */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Keyframes for bouncing the trophy image */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Move trophy up */
+    }
+}
+
+/* Adding animation to the trophy image */
+.image2 {
+    animation: scaleUp 2s ease-in-out infinite; 
+}
+
+.hurray-message {
+    animation: fadeIn 2s ease-in-out; 
+}
+
+/* Fade-in keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.container{
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+.head-score{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    border: 2px solid #FFFFFF;
+    border-radius: 20px;
+}
+.headline{
+    font-size: 2.5rem;
+    font-weight:bold;
+    line-height: 1.2;
+    color: white;
+    text-align: left;
+    letter-spacing: 4px;
+    margin-left: 15px;
+}
+.score{
+    display: flex;
+    gap: 10px;
+
+}
+.score-box{
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    width: 135px;
+    margin: 12px;
+    margin-right: 18px;
+
+}
+.score-box p{
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #656565;
+}
+.computer-score,.your-score{
+    font-size: 54px;
+    font-weight: bold;
+
+}
+.container-2{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin-top:5%;
+}
+.button{
+  cursor: pointer;
+    width: 150px;
+    height: 150px;
+    background-color: white;
+    border-radius: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 15px solid;
+    z-index: 2;
+    
+}
+.rock {
+    top: 0;
+    left: 0;
+    border-color: #0074B6; 
+  }
+  .scissors {
+    top: 0;
+    right: 0;
+    border-color: #BD00FF;
+  }
+  .paper {
+    bottom:0;
+    left: 35%;
+    border-color: #FFA943; 
+  }
+  .wrapper-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+  }
+  .line {
+    position: absolute;
+    width: 15px;
+    background-color:rgba(0, 0, 0, 0.64);
+    z-index: 1;
+  }
+  .line-rock-scissors {
+    top: 0;
+    left: 50%;
+    height: 160px;
+    transform: rotate(90deg);
+  }
+
+  .line-rock-paper {
+   bottom: 25%;
+   left: 30%;
+    height: 200px;
+    transform: rotate(-210deg);
+  }
+
+  .line-scissors-paper {
+    bottom: 25%;
+    right: 30%;
+    height: 200px;
+    transform: rotate(210deg);
+  }
+  #rules-button {
+    position: fixed;
+    bottom: 20px;
+    right: 40px;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: white;
+    border: 2px solid;
+    border-radius:10px;
+    font-size: 1.2rem;
+    font-weight: bold;  
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    
+}
+
+  #next-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    padding: 10px 20px;
+    background-color: transparent ;
+    color: white;
+    border: 2px solid;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;  
+    letter-spacing: 1.2px;
+    cursor: pointer;
+    display: none;
+     
+  }
+  .popup-container{
+    position: fixed;
+    top:33%;
+    right:3%;
+    background-color: #004429;
+    width: 330px;
+    padding: 10px 20px;
+    border:4px solid white;
+    border-radius: 10%;
+    display: none;
+  }
+  .dangrek-regular {
+    font-family: "Dangrek", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: -40px;
+    right: -25px;
+    background-color: red;
+    color: white;
+    border: 4px solid white;
+    padding: 0px 11px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-style: normal;
+    font-size: 48px;
+    font-weight: 400;
+    font-family: "Dangrek", sans-serif;
+  }
+  .popup-content h3 {
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 30px;
+  }
+
+  .popup-content ul {
+    list-style-type: square;
+    padding-left: 20px;
+    color: white;
+  }
+
+  .popup-content ul li {
+    margin-bottom: 15px;
+    font-size: medium;
+  }
+  .popup-content ul li::marker {
+    color: #FFD600;
+    font-size: x-large;
+    
+  }
+  #result-container{
+    display:flex;
+    justify-content: space-around;
+    align-items: center;  
+
+  }
+  .circle-container-1,.circle-container-2{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+  }
+  .result-message {
+    padding-top:100px ;
+    font-size: 24px;
+    margin: 0 75px;
+    text-align: center;
+    color: white;
+  }
+  #result-text{
+    letter-spacing:3px;
+  }
+  .player-picked, .computer-picked{
+    text-align: center;
+  }
+  .player-picked p,.computer-picked p{
+    color: white;
+    font-weight: bold;
+    margin-bottom: 50px;
+  }
+  #play-again, #play-again-2 {
+    width: 150px;
+    font-size: 15px;
+    font-weight:600;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    color: #6B6B6B;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+ .wrapper-div-2{
+  display: none;
+ }
+.hurray-message{
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: white;
+}
+.trophy-image{
+  position: relative;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.image1{
+  position: absolute;
+  top: 10%;
+  z-index: 2;
+   
+}
+.image2{
+  position: absolute;
+  top: 30%;
+  z-index: 1; 
+}
+.hurray-message h1{
+  font-size: 80px;
+  
+}
+.hurray-message h2{
+  font-size: 36px;
+}
+@keyframes ripple {
+  to {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.ripple-effect:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: solid 20px #2E9A2563;
+  border-radius: 100%;
+  animation: ripple 0.7s linear infinite;
+}
+
+
+@media (max-width: 1024px) {
+  .head-score {
+      flex-direction: row;
+      width: 70%; 
+  }
+  .container-2 {
+    width: 250px;
+    height: 250px;
+}
+.button {
+  width: 80px;
+  height: 80px;
+ border: 5px solid;
+}
+.rock {
+    border-color: #0074B6; 
+  }
+  .scissors {
+    border-color: #BD00FF;
+  }
+  .paper {
+    border-color: #FFA943; 
+  }
+.line {
+  position: absolute;
+  width: 10px;
+  background-color:rgba(0, 0, 0, 0.64);
+  z-index: 1;
+}
+.line-rock-scissors {
+  top: 0;
+  left: 47%;
+  height: 100px;
+}
+
+.line-rock-paper {
+ bottom: 25%;
+ left: 25%;
+  height: 150px;
+}
+
+.line-scissors-paper {
+  bottom: 25%;
+  right: 25%;
+  height: 150px;
+
+}
+}
+@media (max-width:900px){
+    .container-2{
+        margin-top:1%;
+    }
+}
+
+@media (max-width: 768px) {
+    .head-score {
+      flex-direction:row;
+      width: 90%;
+      text-align: center;
+      padding-top: 10px;
+    }
+   
+  }
+
+  @media (max-width: 650px) {
+    .head-score {
+      flex-direction:column;
+      width: 90%;
+      padding-top: 5%;
+    }
+.popup-container{
+    top:45%;
+    right:1%;
+  }
+  .circle-container-1,.circle-container-2{
+    width: 130px;
+    height: 130px;
+  }
+  
+}
+  
+  /* 425px (Small devices phones) */
+  @media (max-width: 425px) {
+    .head-score {
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+    .hurray-message h1{
+        font-size: 60px;
+        
+      }
+      .hurray-message h2{
+        font-size: 26px;
+      }
+  }
+  
+  /*320px (Very small phones) */
+  @media (max-width: 320px) {
+    
+    .button {
+      width: 40px;
+      height: 40px;
+      border: 2px solid;
+    }
+    h1, h2 {
+      font-size: 18px; 
+    }
+  
+  }
